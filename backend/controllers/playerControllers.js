@@ -14,7 +14,7 @@ export const addNewPlayer = (req, res) => {
   });
 };
 
-export const getPlayers = (req, res) => {
+export const getAllPlayers = (req, res) => {
   Player.find({}, (err, players) => {
     if (err) {
       res.send(err);
@@ -23,7 +23,7 @@ export const getPlayers = (req, res) => {
   });
 };
 
-export const getPlayerById = (req, res) => {
+export const getPlayer = (req, res) => {
   Player.findById(req.params.playerId, (err, player) => {
     if (err) {
       res.send(err);
@@ -45,4 +45,13 @@ export const updatePlayer = (req, res) => {
       }
       res.json(player);
     });
+};
+
+export const deletePlayer = (req, res) => {
+  Player.findByIdAndDelete(req.params.playerId, (err, player) => {
+    if (err) {
+      res.send(err);
+    }
+    res.json({message: 'Successfully deleted player.'});
+  });
 };
