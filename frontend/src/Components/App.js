@@ -18,7 +18,7 @@ class App extends React.Component {
     const url ='http://localhost:4000/players';
     axios.get(url)
       .then(res => this.setState({ players: res.data }))
-      .catch(err => console.log(err));
+      .catch(console.error);
   }
   updateCurrentPlayer(item) { 
     this.setState({ currentPlayer: item }); 
@@ -27,9 +27,11 @@ class App extends React.Component {
     return (
       <div className="App container-fluid">
         <div className="row">
-          <div className="col s12">
-            Menu
-          </div>
+          <nav>
+            <div className="nav-wrapper blue darken-1">
+              <a href="/" className="brand-logo">Football Management</a>
+            </div>
+          </nav>
         </div>
         <div className="row">
           <div className="col s3">
@@ -39,7 +41,7 @@ class App extends React.Component {
             />
           </div>
           <div className="col s9">
-            <PlayerSingle />
+            <PlayerSingle player={this.state.currentPlayer} />
           </div>
         </div>
         <div className="row">
