@@ -10,20 +10,18 @@ class App extends React.Component {
     super(props);
     this.state = {
       players: [],
-      currentPlayer: { },
+      currentPlayer: {}
     };
     this.updateCurrentPlayer = this.updateCurrentPlayer.bind(this);
   }
   componentDidMount() {
     const url ='http://localhost:4000/players';
     axios.get(url)
-      .then(res => this.setState({ players: res }))
+      .then(res => this.setState({ players: res.data }))
       .catch(err => console.log(err));
   }
-  updateCurrentPlayer(item) {
-    this.setState({
-      currentPlayer: item,
-    });
+  updateCurrentPlayer(item) { 
+    this.setState({ currentPlayer: item }); 
   }
   render() {
     return (
