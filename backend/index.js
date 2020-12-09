@@ -21,7 +21,6 @@ app.use(bodyparser.json());
 // CORS setup
 app.use(cors());
 
-// register routes
 routes(app);
 
 app.get('/', (req, res) => 
