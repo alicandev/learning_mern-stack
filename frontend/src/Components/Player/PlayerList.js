@@ -6,6 +6,6 @@ const PlayerList = () => {
       PlayerList
     </div>
   );
-}
+};
  
 export default PlayerList;
