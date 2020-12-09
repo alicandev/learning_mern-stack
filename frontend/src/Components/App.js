@@ -16,7 +16,8 @@ class App extends React.Component {
   }
   componentDidMount() {
     const url ='http://localhost:4000/players';
-    axios.get(url)
+    axios
+      .get(url)
       .then(res => this.setState({ players: res.data }))
       .catch(console.error);
   }
